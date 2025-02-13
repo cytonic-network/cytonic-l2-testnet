@@ -1,52 +1,52 @@
 [
-    {
-        "chain-name": "cytonic-l2-testnet",
-        "parent-chain-id": 52225,
-        "parent-chain-is-arbitrum": false,
-        "sequencer-url": "",
-        "secondary-forwarding-target": "",
-        "feed-url": "",
-        "secondary-feed-url": "",
-        "das-index-url": "",
-        "has-genesis-state": false,
-        "chain-config": {
-            "chainId": 52226,
-            "homesteadBlock": 0,
-            "daoForkSupport": true,
-            "eip150Block": 0,
-            "eip150Hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-            "eip155Block": 0,
-            "eip158Block": 0,
-            "byzantiumBlock": 0,
-            "constantinopleBlock": 0,
-            "petersburgBlock": 0,
-            "istanbulBlock": 0,
-            "muirGlacierBlock": 0,
-            "berlinBlock": 0,
-            "londonBlock": 0,
-            "clique": {
-                "period": 0,
-                "epoch": 0
-            },
-            "arbitrum": {
-                "EnableArbOS": true,
-                "AllowDebugPrecompiles": true,
-                "DataAvailabilityCommittee": false,
-                "InitialArbOSVersion": 32,
-                "InitialChainOwner": "0x4832AF44dC71309e16243AFC3745Fc61459ed2d6",
-                "GenesisBlockNum": 0
-            }
-        },
-        "rollup": {
-            "bridge": "0x4Cd0e423CCa69EF269d0086bCa35e69175cc4cAC",
-            "inbox": "0xa748B03A0Ec64e917A2657C6cF449F417994999f",
-            "sequencer-inbox": "0x64aaCddbC226946290a552BC09d0Ad2AE6fd90bE",
-            "deployed-at": 28239,
-            "rollup": "0x49c49a28C437F50902D365C6559cf8edd81919dB",
-            "native-token": "0x0000000000000000000000000000000000000000",
-            "upgrade-executor": "0x6E1CbBBc19FE9475dA90c3828Ee0b76E8545078e",
-            "validator-utils": "0x0F45e6E949E46fcBB8eeFa9ed952477b7044A84C",
-            "validator-wallet-creator": "0xb668F21C6897F5a5ee56185cF9e36fBCE6f2c088"
-        }
+  {
+    "chain-name": "cytonic-l2-testnet",
+    "parent-chain-id": 52225,
+    "parent-chain-is-arbitrum": false,
+    "sequencer-url": "",
+    "secondary-forwarding-target": "",
+    "feed-url": "",
+    "secondary-feed-url": "",
+    "das-index-url": "",
+    "has-genesis-state": false,
+    "chain-config": {
+      "chainId": 52226,
+      "homesteadBlock": 0,
+      "daoForkSupport": true,
+      "eip150Block": 0,
+      "eip150Hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "eip155Block": 0,
+      "eip158Block": 0,
+      "byzantiumBlock": 0,
+      "constantinopleBlock": 0,
+      "petersburgBlock": 0,
+      "istanbulBlock": 0,
+      "muirGlacierBlock": 0,
+      "berlinBlock": 0,
+      "londonBlock": 0,
+      "clique": {
+        "period": 0,
+        "epoch": 0
+      },
+      "arbitrum": {
+        "EnableArbOS": true,
+        "AllowDebugPrecompiles": true,
+        "DataAvailabilityCommittee": false,
+        "InitialArbOSVersion": 32,
+        "InitialChainOwner": "0x4832AF44dC71309e16243AFC3745Fc61459ed2d6",
+        "GenesisBlockNum": 0
+      }
+    },
+    "rollup": {
+      "bridge": "0xE67c7E79Fbe0d35e9296cF180892DD6f084B435d",
+      "inbox": "0x21b85201dc4EE41dE93d743d7d1a50a738551D3F",
+      "sequencer-inbox": "0xA83E9F5cECB82BCBd1D0a6B0D05dF05980F94939",
+      "deployed-at": 1376345,
+      "rollup": "0x9C30724d967d11A9Eda6E3b581805f4d992881b5",
+      "native-token": "0x0000000000000000000000000000000000000000",
+      "upgrade-executor": "0x34a64dCB02cEa466DB05Eb90C4113Fa8e0611a9b",
+      "validator-utils": "0xCe5216015939e4039EE9B988B63d6b9531A68E78",
+      "validator-wallet-creator": "0x62287F3fD34b57c863aE6e688A0A21f5F5866546"
     }
+  }
 ]
