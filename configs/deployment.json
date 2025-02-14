@@ -1,11 +1,11 @@
 {
-  "bridge": "0xE67c7E79Fbe0d35e9296cF180892DD6f084B435d",
-  "inbox": "0x21b85201dc4EE41dE93d743d7d1a50a738551D3F",
-  "sequencer-inbox": "0xA83E9F5cECB82BCBd1D0a6B0D05dF05980F94939",
-  "deployed-at": 1376345,
-  "rollup": "0x9C30724d967d11A9Eda6E3b581805f4d992881b5",
+  "bridge": "0xBEb2424288B0be8c8E93b1D3Ba0193468841e5e3",
+  "inbox": "0xc8f8C393A257aCb0b59112250a5b73E82E92478e",
+  "sequencer-inbox": "0x938a60Ea989E1D0ED5d1A3F60955F2B5cAADac92",
+  "deployed-at": 1394795,
+  "rollup": "0x1D6058e61095a5208F15f3968Fe60ea493Eb705A",
   "native-token": "0x0000000000000000000000000000000000000000",
-  "upgrade-executor": "0x34a64dCB02cEa466DB05Eb90C4113Fa8e0611a9b",
-  "validator-utils": "0xCe5216015939e4039EE9B988B63d6b9531A68E78",
-  "validator-wallet-creator": "0x62287F3fD34b57c863aE6e688A0A21f5F5866546"
+  "upgrade-executor": "0x59abB33aB8EDE3be0c64a9ddDa8961ceAC275e07",
+  "validator-utils": "0xDFe5574e08d94962C45Ab68Aa2a74BF8aF50E3f2",
+  "validator-wallet-creator": "0x10C4C5a34b422078bDB2f6a54267bFb710d5Bfe6"
 }

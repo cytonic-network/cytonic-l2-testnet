@@ -61,7 +61,7 @@
         },
         "block-validator": {
             "validation-server": {
-                "url": "ws://validation_node:8549",
+                "url": "ws://validation-node:8549",
                 "jwtsecret": "/config/val_jwt.hex"
             }
         },
