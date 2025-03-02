@@ -22,7 +22,7 @@ services:
     volumes:
       - "seq-data-a:/home/user/.arbitrum/local/nitro"
       - "./configs:/config"
-      - "./data/tokenbridge-data:/tokenbridge-data"
+      - "tokenbridge-data:/tokenbridge-data"
     ports:
       - "127.0.0.1:8347:8547"
       - "127.0.0.1:8348:8548"
@@ -70,7 +70,7 @@ services:
     <<: *common-params
     command: [ "--conf.file", "/config/poster_config.json", "--node.batch-poster.parent-chain-wallet.private-key", "${BATCH_POSTER_PRIVATE_KEY}", "--node.batch-poster.data-poster.redis-signer.signing-key", "${BATCH_POSTER_REDIS_SIGNING_KEY}" ]
     volumes:
-      - ".poster-data-b:/home/user/.arbitrum/local/nitro"
+      - "poster-data-b:/home/user/.arbitrum/local/nitro"
       - "./configs:/config"
     ports:
       - "127.0.0.1:9147:8547"
