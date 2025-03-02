@@ -84,5 +84,8 @@
         "addr": "0.0.0.0",
         "vhosts": "*",
         "corsdomain": "*"
+    },
+    "file-logging": {
+        "enable": false
     }
 }

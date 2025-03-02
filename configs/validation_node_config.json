@@ -15,5 +15,8 @@
     "auth": {
         "jwtsecret": "/config/val_jwt.hex",
         "addr": "0.0.0.0"
+    },
+    "file-logging": {
+        "enable": false
     }
 }
