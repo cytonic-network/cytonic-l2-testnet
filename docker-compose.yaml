@@ -18,7 +18,7 @@ services:
 
   sequencer-a:
     <<: *common-params
-    command: [ "--conf.file", "/config/sequencer_config.json", "--node.feed.output.enable", "--node.feed.output.port", "9642", "--http.api", "net,web3,eth,txpool", "--node.seq-coordinator.my-url", "ws://sequencer-a:8548", "--graphql.enable", "--graphql.vhosts", "*", "--graphql.corsdomain", "*", "--execution.caching.archive" ]
+    command: [ "--conf.file", "/config/sequencer_config.json", "--node.feed.output.enable", "--node.feed.output.port", "9642", "--http.api", "net,web3,eth,txpool", "--node.seq-coordinator.my-url", "ws://sequencer-a:8548", "--graphql.enable", "--graphql.vhosts", "*", "--graphql.corsdomain", "*" ]
     volumes:
       - "seq-data-a:/home/user/.arbitrum/local/nitro"
       - "./configs:/config"
@@ -38,7 +38,7 @@ services:
     volumes:
       - "seq-data-b:/home/user/.arbitrum/local/nitro"
       - "./configs:/config"
-    command: --conf.file /config/sequencer_config.json --node.seq-coordinator.my-url ws://sequencer-b:8548
+    command: --conf.file /config/sequencer_config.json --node.seq-coordinator.my-url ws://sequencer-b:8548 --execution.caching.archive
     depends_on:
       - redis-init
 
