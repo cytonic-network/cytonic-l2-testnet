@@ -13,16 +13,10 @@
     },
     "node": {
         "staker": {
-            "dangerous": {
-                "without-block-validator": false
-            },
             "parent-chain-wallet": {
                 "private-key": ""
             },
-            "disable-challenge": false,
-            "enable": false,
-            "staker-interval": "10s",
-            "make-assertion-interval": "10s",
+            "enable": true,
             "strategy": "MakeNodes"
         },
         "sequencer": true,
@@ -33,38 +27,25 @@
         "delayed-sequencer": {
             "enable": true,
             "use-merge-finality": false,
-            "require-full-finality": false
+            "require-full-finality": false,
+            "finalize-distance": 1
         },
         "batch-poster": {
             "enable": true,
-            "redis-url": "redis://redis:6379",
-            "max-delay": "30s",
-            "l1-block-bound": "ignore",
             "parent-chain-wallet": {
                 "private-key": ""
-            },
-            "data-poster": {
-                "redis-signer": {
-                    "signing-key": ""
-                },
-                "wait-for-l1-finality": false
             }
-        },
-        "block-validator": {
-            "validation-server": {
-                "url": "ws://validation-node:8549",
-                "jwtsecret": "/config/val_jwt.hex"
-            }
-        },
-        "data-availability": {
-            "enable": false
         }
     },
     "execution": {
         "sequencer": {
-            "enable": true
+            "enable": true,
+            "max-block-speed": "250ms"
         },
-        "forwarding-target": "null"
+        "forwarding-target": "",
+        "caching": {
+            "archive": true
+        }
     },
     "persistent": {
         "chain": "local"

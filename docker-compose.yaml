@@ -5,28 +5,15 @@ x-common-params: &common-params
     - "host.docker.internal:host-gateway"
 
 services:
-  redis:
-    image: redis:6.2.6
-    ports:
-      - "127.0.0.1:6379:6379"
-  
-  # redis-init:
-  #   image: redis:6.2.6
-  #   entrypoint: ["sh", "-c", "redis-cli -h redis set coordinator.priorities ws://sequencer-a:8548,ws://sequencer-b:8548,ws://sequencer-c:8548"]
-  #   depends_on:
-  #     - redis
-
   sequencer:
     <<: *common-params
     command: [
       "--conf.file", "/config/sequencer_config.json", 
       "--node.feed.output.enable", 
       "--node.feed.output.port", "9642", 
-      "--http.api", "net,web3,eth,txpool", 
-      "--node.seq-coordinator.my-url", "ws://sequencer-a:8548",
-      "--execution.caching.archive",
+      "--http.api", "net,web3,eth,txpool,arb", 
       "--node.batch-poster.parent-chain-wallet.private-key", "${BATCH_POSTER_PRIVATE_KEY}",
-      "--node.batch-poster.data-poster.redis-signer.signing-key", "${BATCH_POSTER_REDIS_SIGNING_KEY}"
+      "--node.staker.parent-chain-wallet.private-key", "${VALIDATOR_PRIVATE_KEY}"
     ]
     volumes:
       - "seq-data-a:/home/user/.arbitrum/local/nitro"
@@ -36,99 +23,6 @@ services:
       - "127.0.0.1:8347:8547"
       - "127.0.0.1:8348:8548"
       - "127.0.0.1:9642:9642"
-    depends_on:
-      - redis
-
-  # sequencer-b:
-  #   <<: *common-params
-  #   ports:
-  #     - "127.0.0.1:8647:8547"
-  #     - "127.0.0.1:8648:8548"
-  #   volumes:
-  #     - "seq-data-b:/home/user/.arbitrum/local/nitro"
-  #     - "./configs:/config"
-  #   command: --conf.file /config/sequencer_config.json --node.seq-coordinator.my-url ws://sequencer-b:8548 --execution.caching.archive
-  #   depends_on:
-  #     - redis-init
-
-  # sequencer-c:
-  #   <<: *common-params
-  #   ports:
-  #     - "127.0.0.1:8747:8547"
-  #     - "127.0.0.1:8748:8548"
-  #   volumes:
-  #     - "seq-data-c:/home/user/.arbitrum/local/nitro"
-  #     - "./configs:/config"
-  #   command: --conf.file /config/sequencer_config.json --node.seq-coordinator.my-url ws://sequencer-c:8548
-  #   depends_on:
-  #     - redis-init
-
-  # poster-a:
-  #   <<: *common-params
-  #   command: [ "--conf.file", "/config/poster_config.json", "--node.batch-poster.parent-chain-wallet.private-key", "${BATCH_POSTER_PRIVATE_KEY}", "--node.batch-poster.data-poster.redis-signer.signing-key", "${BATCH_POSTER_REDIS_SIGNING_KEY}" ]
-  #   volumes:
-  #     - "poster-data-a:/home/user/.arbitrum/local/nitro"
-  #     - "./configs:/config"
-  #   ports:
-  #     - "127.0.0.1:8147:8547"
-  #     - "127.0.0.1:8148:8548"
-  #   depends_on:
-  #     - redis-init
-
-  # poster-b:
-  #   <<: *common-params
-  #   command: [ "--conf.file", "/config/poster_config.json", "--node.batch-poster.parent-chain-wallet.private-key", "${BATCH_POSTER_PRIVATE_KEY}", "--node.batch-poster.data-poster.redis-signer.signing-key", "${BATCH_POSTER_REDIS_SIGNING_KEY}" ]
-  #   volumes:
-  #     - "poster-data-b:/home/user/.arbitrum/local/nitro"
-  #     - "./configs:/config"
-  #   ports:
-  #     - "127.0.0.1:9147:8547"
-  #     - "127.0.0.1:9148:8548"
-  #   depends_on:
-  #     - redis-init
-
-  # poster-c:
-  #   <<: *common-params
-  #   command: [ "--conf.file", "/config/poster_config.json", "--node.batch-poster.parent-chain-wallet.private-key", "${BATCH_POSTER_PRIVATE_KEY}", "--node.batch-poster.data-poster.redis-signer.signing-key", "${BATCH_POSTER_REDIS_SIGNING_KEY}" ]
-  #   volumes:
-  #     - "poster-data-c:/home/user/.arbitrum/local/nitro"
-  #     - "./configs:/config"
-  #   ports:
-  #     - "127.0.0.1:9247:8547"
-  #     - "127.0.0.1:9248:8548"
-  #   depends_on:
-  #     - redis-init
-
-  validator:
-    <<: *common-params
-    ports:
-      - "127.0.0.1:8247:8547"
-      - "127.0.0.1:8248:8548"
-    volumes:
-      - "validator-data:/home/user/.arbitrum/local/nitro"
-      - "./configs:/config"
-    command: --conf.file /config/validator_config.json --http.port 8547 --http.api net,web3,arb --ws.port 8548 --node.staker.parent-chain-wallet.private-key ${VALIDATOR_PRIVATE_KEY}
-    depends_on:
-      - sequencer
-      # - sequencer-b
-      # - sequencer-c
-      - validation-node
-
-  validation-node:
-    <<: *common-params
-    entrypoint: /usr/local/bin/nitro-val
-    ports:
-      - "127.0.0.1:8949:8549"
-    volumes:
-      - "./configs:/config"
-    command: --conf.file /config/validation_node_config.json
-
 volumes:
   seq-data-a:
-  seq-data-b:
-  seq-data-c:
-  poster-data-a:
-  poster-data-b:
-  poster-data-c:
-  validator-data:
   tokenbridge-data:
