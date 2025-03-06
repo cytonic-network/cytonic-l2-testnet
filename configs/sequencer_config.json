@@ -35,7 +35,7 @@
             "parent-chain-wallet": {
                 "private-key": ""
             },
-            "max-delay": "30s"
+            "max-delay": "1m"
         }
     },
     "execution": {
